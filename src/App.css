@@ -29,33 +29,38 @@ body, html {
 /* HEADER */
 .logo-wrapper {
   position: absolute;
-  top: 18px;
-  left: 24px;
+  top: -100px;
+  left: -100px;
   width: auto;
   height: 100px;
   z-index: 101;
-}
-
-.logo-wrapper:hover .App-logo {
-  animation: App-logo-spin infinite 15s linear;
+  animation: slide-in-top-left 2s cubic-bezier(.65,.4,.89,1) forwards;
+  animation-delay: 3.25s;
 }
 
 .App-menu {
   position: absolute;
   width: 51px;
   height: 51px;
-  right: 24px;
-  top: 24px;
+  right: -100px;
+  top: -100px;
   border: 1px solid var(--teal);
   box-sizing: border-box;
   -webkit-border-radius: 100%;
   border-radius: 100%;
-  transition: background-color .25s ease-in-out;
+  transition: all .25s ease-in-out;
+  z-index: 2;
+  animation: slide-in-top-right 2s cubic-bezier(.65,.4,.89,1) forwards;
+  animation-delay: 3.25s;
 }
 
 .App-menu:hover {
   cursor: pointer;
   background-color: var(--teal);
+  -webkit-box-shadow: rgba(0, 255, 240, 0.65) 0px 0px 30px 1px;
+  -moz-box-shadow: rgba(0, 255, 240, 0.65) 0px 0px 30px 1px;
+  box-shadow: rgba(0, 255, 240, 0.65) 0px 0px 30px 1px;
+  transform: scale(1.1);
 }
 
 .App-menu .hamburger {
@@ -102,10 +107,13 @@ body, html {
   right: 0;
   bottom: 0;
   width: 100vw;
+  z-index: 1010;
   display: flex;
   justify-content: center;
   align-content: center;
-  z-index: 10;
+  background-color: rgba(255,255,255,0.95);
+  animation: index-change 1.5s linear forwards;
+  animation-delay: 2s;
 }
 
 .screen-loader div {
@@ -116,19 +124,19 @@ body, html {
   justify-content: center;
   position: relative;
   align-items: center;
-  animation: intro-scale 2s ease-in-out forwards;
+  animation: intro-scale 1s ease-in-out forwards;
+  animation-delay: 2.75s;
 }
 
 .screen-loader h4 {
   position: absolute;
   margin-top: 0;
-  animation: fade-in 1s forwards;
   font-size: 5vmin;
 }
 
 .screen-loader .App-logo-loader {
   height: 47.5vmin;
-  animation: App-logo-spin infinite 6s linear;
+  animation: App-logo-spin infinite 5s linear;
 }
 
 .event-date {
@@ -222,6 +230,30 @@ body, html {
 /*.registration-wrapper select::after {
   background-image: url( './images/Rectangle.png' );
 }*/
+/*.loader-logo .logo-letter {
+  animation: kaboom 5s ease alternate infinite;
+  &:nth-child(2) {
+    animation-delay: 0.1s;
+  }
+  &:nth-child(3) {
+    animation-delay: 0.2s;
+  }
+  &:nth-child(4) {
+    animation-delay: 0.3s;
+  }
+  &:nth-child(5) {
+    animation-delay: 0.4s;
+  }
+}
+
+@keyframes kaboom {
+  90% {
+    transform: scale(1.0);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}*/
 
 .registration-wrapper select option {
   color: #FEFEFE;
@@ -289,7 +321,10 @@ select:not(:focus):valid ~ .floating-label {
   line-height: 60px;
   font-size: 66px;
   letter-spacing: -0.02em;
+  transition-delay: 1.6;
 }
+
+
 
 
 
@@ -305,58 +340,57 @@ select:not(:focus):valid ~ .floating-label {
   width: 94vmin;
 }
 
+.image-relative {
+  position: relative; 
+  height: 62vmin;
+  width: 94vmin;
+}
+
 .image-holder-circle {
   position: absolute;
   top: 0;
-  /*right: calc( -30vmin - 13.5px);*/
-  right: 0;
+  right: -100vw;
   height: 60vmin;
   width: 60vmin;
-  /*min-width: 19rem;
-  min-height: 19rem;*/
-  min-width: 176px;
-  min-height: 176px;
+/*  min-width: 176px;
+  min-height: 176px;*/
   margin-top: 2vmin;
   border-radius: 100%;
   overflow: hidden;
-  /*animation: slide-in-right 3.2s forwards;*/
+  animation: slide-in-right 2.75s forwards;
+  animation-delay: 2.75s;
   animation-iteration-count: 1;
 }
 
-.image-square {  
+.image-square {
+  position: absolute;
+  left: -100vw;
   width: 64vmin;
-  /*min-width: 20rem;
-  min-height: 20rem;*/
-  left: 0;
-  min-width: 192px;
-  min-height: 192px;
-  /*margin-left: -12rem;*/
+/*  min-width: 192px;
+  min-height: 192px;*/
   -webkit-box-shadow: 0px 15px 33px 1px rgba(154, 141, 127, 0.5);
   -moz-box-shadow: 0px 15px 33px 1px rgba(154, 141, 127, 0.5);
   box-shadow: 0px 15px 33px 1px rgba(154, 141, 127, 0.5);
-  /*animation: slide-in-left 3.2s forwards;*/
+  animation: slide-in-left 2.75s forwards;
+  animation-delay: 2.75s;
   animation-iteration-count: 1;
 }
 
 .color-circle {
-  animation: half-circle 1.55s forwards;
-  animation-delay: 1.75s;
+  animation: half-circle 1.325s forwards;
+  animation-delay: 4.25s;
   transition-timing-function: linear;
   height: 60vmin;
-  width: 60vmin;
-  /*min-height: 19rem;*/
+  width: 0;
   min-height: 176px;
   background: var(--grey);
   position: absolute;
 }
 
-
 .image-circle {
   width: 60vmin;
-/*  min-width: 19rem;
-  min-height: 19rem;*/
-  min-width: 176px;
-  min-height: 176px;
+/*  min-width: 176px;
+  min-height: 176px;*/
 } 
 
 .image-down-arrow {
@@ -396,8 +430,8 @@ select:not(:focus):valid ~ .floating-label {
   -ms-transform: rotate(-90deg);
   transform: rotate(-90deg);
   color: var(--orange);
-  animation: slide-in-left-button 1.2s forwards;
-  animation-delay: 2s;
+  animation: slide-in-left-button 2.5s forwards;
+  animation-delay: 3s;
   animation-iteration-count: 1;
 }
 
@@ -407,8 +441,8 @@ select:not(:focus):valid ~ .floating-label {
   -ms-transform: rotate(90deg);
   transform: rotate(90deg); 
   color: var(--purple);
-  animation: slide-in-right-button 1.2s forwards;
-  animation-delay: 2s;
+  animation: slide-in-right-button 2.5s forwards;
+  animation-delay: 3s;
   animation-iteration-count: 1;
 }
 
@@ -438,8 +472,8 @@ select:not(:focus):valid ~ .floating-label {
 .hero-link-register-wrapper {
   position: absolute;
   opacity: 0;
-  animation: slide-up-button 1.2s forwards;
-  animation-delay: 2s;
+  animation: slide-up-button 2.5s forwards;
+  animation-delay: 3s;
 }
 
 .hero-link-register {
@@ -502,33 +536,34 @@ select:not(:focus):valid ~ .floating-label {
   }
 }
 
-@keyframes slide-in-left {
+@keyframes App-logo-spin-reverse {
   from {
-/*    -webkit-transform: translateX(-120vmin);
-    -ms-transform: translateX(-120vmin);
-    transform: translateX(-120vmin);*/
-    left: -120vmin;
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
   }
   to {
-/*    -webkit-transform: translateX( calc(50% - 30vmin) );
-    -ms-transform: translateX( calc(50% - 30vmin) );
-    transform: translateX( calc(50% - 30vmin) );*/
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes slide-in-left {
+  from {
+    left: -110vmin;
+  }
+  to {
     left: 0;
   }
 }
 
 @keyframes slide-in-right {
   from {
-    -webkit-transform: translateX(110vmin);
-    -ms-transform: translateX(110vmin);
-    transform: translateX(110vmin);
-    /*left: -110vmin;*/
+    right: -100vmin;
   }
   to {
-    -webkit-transform: translateX( calc(50% - 30vmin) );
-    -ms-transform: translateX( calc(50% - 30vmin) );
-    transform: translateX( calc(50% - 30vmin) );
-    /*left: 0;*/
+    right: 0;
   }
 }
 
@@ -563,6 +598,28 @@ select:not(:focus):valid ~ .floating-label {
   }
 }
 
+@keyframes slide-in-top-left {
+  from {
+    top: -100px;
+    left: -100px;
+  }
+  to {
+    top: 18px;
+    left: 24px;
+  }
+}
+
+@keyframes slide-in-top-right {
+  from {
+    top: -100px;
+    right: -100px;
+  }
+  to {
+    top: 24px;
+    right: 24px;
+  }
+}
+
 @keyframes half-circle {
   from {
     width: 0;
@@ -584,13 +641,24 @@ select:not(:focus):valid ~ .floating-label {
 @keyframes intro-scale {
   0% {
     transform: scale(1);
+    opacity: 1;
   }
   30% {
     transform: scale(1.1);
-    opacity: 1;
   }
   100% {
     transform: scale(0.3);
+    opacity: 0;
+  }
+}
+
+@keyframes index-change {
+  from {
+    z-index: 1000;
+    opacity: 1;
+  }
+  to {
+    z-index: -1;
     opacity: 0;
   }
 }
@@ -603,4 +671,69 @@ select:not(:focus):valid ~ .floating-label {
     100% {
       background-size: 100% 3px, 3px 0, 0 3px, 3px 0;
     }
+}
+
+
+
+@media (max-width: 767px) {
+  .body {
+    padding-top: 3rem;
+  }
+  .hero-link-speakers,
+  .hero-link-about {
+    display: none;
+  }
+}
+
+@media (max-width: 400px) {
+  .body {
+    min-height: 550px;
+    padding-top: 0;
+  }
+
+  .body h1 {
+    line-height: 40px;
+    font-size: 44px;
+    text-align: center;
+    letter-spacing: -0.02em;
+    margin-top: -2rem;
+    padding: 0 24px;
+  }
+  .image-holder {
+    width: 75vmin;
+    margin-top: 5.75rem;
+  }
+
+  .App-logo {
+    height: 90px !important;
+    width: 80px !important;
+  }
+
+  .image-relative {
+    position: relative; 
+    height: 52vmin;
+    width: 75vmin;
+  }
+
+  .image-holder-circle {
+    margin-top: 1.5vmin;
+    height: 48vmin;
+    width: 48vmin;
+  }
+
+  .color-circle {
+    height: 48vmin;
+  }
+
+  .image-circle {
+    width: 48vmin;
+  } 
+
+  .image-square {
+    width: 51vmin;
+  }
+
+  .submit-button {
+    width: 100%;
+  }
 }

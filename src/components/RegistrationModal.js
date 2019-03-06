@@ -1,11 +1,10 @@
-import React from "react";
+import React, {Component } from "react";
 
-class Modal extends React.Component {
+class Modal extends Component {
   render() {
     return (
-        <div className="registration-modal">
-        	<div className="registration-wrapper">
-				<button onClick={this.props.closeModal}>X</button>
+        <div className="registration-modal" onClick={this.props.closeModal}>
+        	<div className="registration-wrapper" onClick={this.props.stopProp}>
 				<h3>Register</h3>
 				<p>Thank you for your interest in Circle Conference</p>
 				<form id="circle-registration-form">
@@ -19,7 +18,7 @@ class Modal extends React.Component {
         	    	</div>
 					<div>
 						<select name="source">
-							<option disabled selected value className="default">How did you hear about us?</option>
+							<option disabled defaultValue value className="default">How did you hear about us?</option>
 							<option>Option 1</option>
 							<option>Option 2</option>
 							<option>Option 3</option>
@@ -33,24 +32,33 @@ class Modal extends React.Component {
   }
 }
 
-class RegistrationModal extends React.Component {
-    constructor() {
-        super();
+class RegistrationModal extends Component {
+    constructor(props) {
+        super(props);
         this.state = {
             showModal: false
         };
     }
 
+    handleChildClick( e ) {
+	    e.stopPropagation();
+  	}
+
     toggleMenu() {
         this.setState({
-            showModal: !this.state.showModal
+            showModal: !this.state.showModal,
         });
+
         if ( this.state.showModal === false ){
-            document.body.style.overflow = "hidden"
+            document.body.style.overflow = "hidden";
+            this.props.changeColor( "#fff" )
         } else {
-            document.body.style.overflow = ""
+            document.body.style.overflow = "";
+            this.props.changeColor( "000" );
         }
     }
+
+
 
     render(props) {
         return (
@@ -62,7 +70,7 @@ class RegistrationModal extends React.Component {
                 Register
                 </a>
                 {this.state.showModal ? 
-                    <Modal closeModal={this.toggleMenu.bind(this)} />
+                	<Modal closeModal={this.toggleMenu.bind(this)} stopProp={this.handleChildClick.bind(this)} />
                     : null
                 }
             </div>

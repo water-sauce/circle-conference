@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import logo from './images/logo-text.svg';
 import square from './images/image-square.jpg';
 import circle from './images/image-circle.png';
-import down_arrow from './images/Rectangle.png';
 
 import SVG from './components/logo.js';
 import RegistrationModal from './components/RegistrationModal.js';
@@ -10,30 +9,23 @@ import RegistrationModal from './components/RegistrationModal.js';
 import './App.css';
 
 class App extends Component {
-  constructor() {
-      super();
-      this.state = {
-          showModal: false
-      };
-      console.log( this.state.showModal );
+  state = {
+    color: '#000'
   }
 
-  // this.button.onClick = 
+  constructor(props) {
+      super(props);
+      this.changeColor = this.changeColor.bind( this );
+  }
 
-  // setTimeout(
-  //   function() {
-  //       this.setState({position: 1});
-  //   }
-  //   .bind(this),
-  //   3000
-  // );
-
-// <img src={logo} className="App-logo" alt="logo" /> 
-
-
+  changeColor( color ){
+    this.setState({ color: color });
+  }
 
 
   render() {
+    const { color } = this.state;
+
     return (
       <div className="App">
 
@@ -46,7 +38,7 @@ class App extends Component {
         
         <a className="logo-wrapper" href="#">
           <h4 className="event-date">December 1-4, 2018</h4>
-          <SVG fill="#000" width="100px" height="110px" viewBox="10 10 100 100" />
+          <SVG fill={ color } width="100px" height="110px" viewBox="10 10 100 100" />
         </a>
 
         <header className="App-header">
@@ -59,17 +51,19 @@ class App extends Component {
           </a>
         </header>
 
-        <RegistrationModal />
+        <RegistrationModal changeColor={ this.changeColor }/>
 
         <div className="body">
           <h1>A Conference For Round Pegs in a Square World.</h1>
           <a href="#" className="hero-link hero-link-about">About</a>
           <a href="#" className="hero-link hero-link-speakers">Speakers</a>
           <div className="image-holder">
-            <img src={square} className="image-square" alt="logo" />
-            <div className="image-holder-circle">
-              <div className="color-circle"></div>
-              <img src={circle} className="image-circle" alt="logo" />
+            <div className="image-relative"> 
+              <img src={square} className="image-square" alt="logo" />
+              <div className="image-holder-circle">
+                <div className="color-circle"></div>
+                <img src={circle} className="image-circle" alt="logo" />
+              </div>
             </div>
           </div>
         </div>
