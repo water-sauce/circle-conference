@@ -1,0 +1,186 @@
+/* ANIMATIONS */
+
+@keyframes App-logo-spin {
+  from {
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes App-logo-spin-reverse {
+  from {
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+  to {
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes slide-in-left {
+  from {
+    left: -110vmin;
+  }
+  to {
+    left: 0;
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    right: -100vmin;
+  }
+  to {
+    right: 0;
+  }
+}
+
+@keyframes slide-in-left-button {
+  from {
+    left: -92px;
+  }
+  to {
+    left: 4px;
+  }
+}
+
+@keyframes slide-in-right-button {
+  from {
+    right: -100px;
+  }
+  to {
+    right: -8px;
+  }
+}
+
+@keyframes slide-up-button {
+  from {
+    opacity: 0;
+    bottom: -100px;
+    left: calc(50% - 57px);
+  }
+  to {
+    opacity: 1;
+    bottom: 78px;
+    left: calc(50% - 57px);
+  }
+}
+
+@keyframes slide-in-top-left {
+  from {
+    top: -100px;
+    left: -100px;
+  }
+  to {
+    top: 18px;
+    left: 24px;
+  }
+}
+
+@keyframes slide-in-top-right {
+  from {
+    top: -100px;
+    right: -100px;
+  }
+  to {
+    top: 24px;
+    right: 24px;
+  }
+}
+
+@keyframes half-circle {
+  from {
+    width: 0;
+  }
+  to {
+    width: 50%;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes intro-scale {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  30% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(0.3);
+    opacity: 0;
+  }
+}
+
+@keyframes index-change {
+  from {
+    z-index: 1000;
+    opacity: 1;
+  }
+  to {
+    z-index: -1;
+    opacity: 0;
+  }
+}
+
+@keyframes under-line {
+    0% {
+      background-size: 0 3px, 3px 0, 0 3px, 3px 0;
+    }
+    100% {
+      background-size: 100% 3px, 3px 0, 0 3px, 3px 0;
+    }
+}
+
+@keyframes line-animation {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes line-circle-one {
+  0%{ 
+    transform: translate( -225px, 160px );
+  }
+  20%{ 
+    transform: translate( -205px, 123px );
+  }
+  100%{ 
+    transform: translate( 0, 0 );
+  }
+}
+
+@keyframes line-circle-two {
+  0%{ 
+    transform: translate( 225px, -160px );
+  }
+  20%{ 
+    transform: translate( 205px, -123px ); 
+  }
+  100%{ 
+    transform: translate( 0, 0 ); 
+  }
+}

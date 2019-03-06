@@ -1,0 +1,38 @@
+/* SCREEN LOADER */
+
+.screen-loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  z-index: 1010;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  background-color: rgba(255,255,255,0.95);
+  animation: index-change 1.5s linear forwards;
+  animation-delay: 2.5s;
+  
+  div {
+    width: 100%;
+    -webkit-align-self: center;
+    align-self: center;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    align-items: center;
+    animation: intro-scale 1s ease-in-out forwards;
+    animation-delay: 2.75s;
+  }
+  h4 {
+    position: absolute;
+    margin-top: 0;
+    font-size: 5vmin;
+  }
+  .App-logo-loader {
+    height: 47.5vmin;
+    animation: App-logo-spin infinite 5s linear;
+  }
+}

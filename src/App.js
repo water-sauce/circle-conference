@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
-import logo from './images/logo-text.svg';
 import square from './images/image-square.jpg';
 import circle from './images/image-circle.png';
+import LineSVG from './components/AccentLine.js';
+import SmallLineSVG from './components/SmallLine.js';
 
-import SVG from './components/logo.js';
 import RegistrationModal from './components/RegistrationModal.js';
+import PreScreenLoader from './components/PreScreenLoader.js';
+import Header from './components/Header.js';
 
-import './App.css';
+import './App.scss';
 
 class App extends Component {
   state = {
@@ -22,42 +24,24 @@ class App extends Component {
     this.setState({ color: color });
   }
 
-
   render() {
     const { color } = this.state;
 
     return (
-      <div className="App">
+      <div className="App" id="top">
 
-        <div className="screen-loader">
-          <div>
-            <img src={logo} className="App-logo-loader" alt="logo" />
-            <h4 className="event-date">December 1-4, 2018</h4>
-          </div>
-        </div>
-        
-        <a className="logo-wrapper" href="#">
-          <h4 className="event-date">December 1-4, 2018</h4>
-          <SVG fill={ color } width="100px" height="110px" viewBox="10 10 100 100" />
-        </a>
-
-        <header className="App-header">
-          <a className="App-menu">
-            <div className="hamburger">
-              <div></div>
-              <div></div>
-              <div></div>
-            </div>
-          </a>
-        </header>
-
+        <PreScreenLoader />
+        <Header color={ color } />
         <RegistrationModal changeColor={ this.changeColor }/>
 
         <div className="body">
+          <LineSVG />
+          <SmallLineSVG />
+
           <h1>A Conference For Round Pegs in a Square World.</h1>
-          <a href="#" className="hero-link hero-link-about">About</a>
-          <a href="#" className="hero-link hero-link-speakers">Speakers</a>
-          <div className="image-holder">
+          <a href="#top" className="hero-link hero-link-about">About</a>
+          <a href="#top" className="hero-link hero-link-speakers">Speakers</a>
+          <div className="image-wrapper">
             <div className="image-relative"> 
               <img src={square} className="image-square" alt="logo" />
               <div className="image-holder-circle">
@@ -67,7 +51,6 @@ class App extends Component {
             </div>
           </div>
         </div>
-
 
       </div>
     );

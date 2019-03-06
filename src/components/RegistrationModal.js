@@ -66,6 +66,7 @@ class RegistrationModal extends Component {
                 <a
                     onClick={this.toggleMenu.bind(this)}
                     className="hero-link hero-link-register"
+                    href="#top"
                 >
                 Register
                 </a>

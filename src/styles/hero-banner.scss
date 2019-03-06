@@ -1,0 +1,235 @@
+/* HERO IMAGES */
+.image-wrapper {
+  position: absolute;
+  margin-top: -2rem;
+  align-self: center;
+  width: 94vmin;
+  @media (max-width: 400px) {
+    width: 75vmin;
+    margin-top: 5.75rem;
+  }
+}
+
+.image-relative {
+  position: relative; 
+  height: 62vmin;
+  width: 94vmin;
+  @media (max-width: 400px) {
+    height: 52vmin;
+    width: 75vmin;
+  }
+}
+
+.image-holder-circle {
+  position: absolute;
+  top: 0;
+  right: -100vw;
+  height: 60vmin;
+  width: 60vmin;
+  margin-top: 2vmin;
+  border-radius: 100%;
+  overflow: hidden;
+  animation: slide-in-right 2.75s forwards;
+  animation-delay: 2.75s;
+  animation-iteration-count: 1;
+  @media (max-width: 400px) {
+    margin-top: 1.5vmin;
+    height: 48vmin;
+    width: 48vmin;
+  }
+}
+
+.image-square {
+  position: absolute;
+  left: -100vw;
+  width: 64vmin;
+  -webkit-box-shadow: 0px 15px 33px 1px rgba(154, 141, 127, 0.5);
+  -moz-box-shadow: 0px 15px 33px 1px rgba(154, 141, 127, 0.5);
+  box-shadow: 0px 15px 33px 1px rgba(154, 141, 127, 0.5);
+  animation: slide-in-left 2.75s forwards;
+  animation-delay: 2.75s;
+  animation-iteration-count: 1;
+  @media (max-width: 400px) {
+    width: 51vmin;
+  }
+}
+
+.color-circle {
+  animation: half-circle 1.325s forwards;
+  animation-delay: 4.25s;
+  transition-timing-function: linear;
+  height: 60vmin;
+  width: 0;
+  min-height: 176px;
+  background: var(--grey);
+  position: absolute;
+  @media (max-width: 400px) {
+    height: 48vmin;
+  }
+}
+
+.image-circle {
+  width: 60vmin;
+  @media (max-width: 400px) {
+    height: 48vmin;
+  }
+} 
+
+.image-down-arrow {
+  background-image: url( './images/Rectangle.png' );
+  background-repeat: no-repeat;
+}
+
+
+/* LINKS */
+
+.hero-link {
+  z-index: 1;
+  position: absolute;
+  text-decoration: none;
+  font-weight: 600;
+  line-height: 16px;
+  font-size: 16px;
+  text-transform: capitalize;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  &:hover {
+  	cursor: pointer;
+  }
+}
+
+.hero-link-about,
+.hero-link-speakers {
+  top: calc(50vh - 7px);  
+  padding: 4px;
+  border: 2px solid transparent;
+  z-index: 11;
+  opacity: 1;
+  visibility: visible;
+  &::after {
+    content: '';
+    display: block;
+    margin-top: 4px;
+    width: 0;
+    height: 2px;
+    transition: width .3s;
+  }
+
+  &:hover::after {
+    width: 100%;
+  }
+
+  @media (max-width: 767px) {
+    visibility: hidden;
+    opacity: 0;
+  }
+}
+
+.hero-link-about {
+  left: -92px;
+  -webkit-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+  color: var(--orange);
+  animation: slide-in-left-button linear 2.75s forwards;
+  animation-delay: 2.5s;
+  animation-iteration-count: 1;
+  &::after {
+  	background-color: var(--orange);
+  }
+}
+
+.hero-link-speakers {
+  right: -100px;
+  -webkit-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg); 
+  color: var(--purple);
+  animation: slide-in-right-button linear 2.75s forwards;
+  animation-delay: 2.5s;
+  animation-iteration-count: 1;
+  &::after {
+  	background-color: var(--purple);
+  }
+}
+
+
+.hero-link-register-wrapper {
+  position: absolute;
+  opacity: 0;
+  animation: slide-up-button 2.5s forwards;
+  animation-delay: 3s;
+}
+
+.hero-link-register {
+  transition: all ease-in-out .3s;
+  color: #FE018A;
+  padding: 12px 24px;
+  border: 1px solid var(--magenta);
+  box-sizing: border-box;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  &:hover {
+    text-decoration: none;
+    color: var(--white);
+    background-color: var(--magenta);  
+    -webkit-box-shadow: rgba(254, 0, 138, 0.65) 0px 0px 30px 1px;
+    -moz-box-shadow: rgba(254, 0, 138, 0.65) 0px 0px 30px 1px;
+    box-shadow: rgba(254, 0, 138, 0.65) 0px 0px 30px 1px;
+    transform: scale(1.1);
+  }
+}
+
+// LINE + CIRCLE ANIMATION 
+#line-dance {
+  position: absolute;
+  z-index: 8;
+  align-self: center;
+  top: calc( 50% - 260px );
+
+  line {
+    opacity: 0;
+    animation: line-animation 2s linear forwards;
+    animation-delay: 3.5s;
+  }
+
+  #line-replica {
+    height: 2px;
+    background-color: red;
+    width: 962px;
+  }
+
+  #circle-purple {
+    transform: translate( -225px, 160px );
+    animation: line-circle-one 3s linear forwards;
+    animation-delay: 1s;
+  }
+
+  #circle-yellow {
+    transform: translate( 225px, -160px );
+    animation: line-circle-two 3s linear forwards;
+    animation-delay: 1s;
+  }
+}
+
+
+#gradient-line {
+  @media (max-width: 992px) {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+#gradient-line-small {
+  position: absolute;
+  top: calc(50% - 64px);
+  visibility: hidden;
+  z-index: 9;
+  opacity: 0;
+  animation: line-animation 2s linear forwards;
+  animation-delay: 3.5s;
+  @media (max-width: 992px) {
+    opacity: 1;
+    visibility: visible;
+  }
+}

@@ -1,0 +1,81 @@
+/* HEADER */
+.logo-wrapper {
+  position: absolute;
+  top: -100px;
+  left: -100px;
+  width: auto;
+  height: 100px;
+  z-index: 101;
+  animation: slide-in-top-left 2s cubic-bezier(.65,.4,.89,1) forwards;
+  animation-delay: 3.25s;
+
+  .event-date {
+    position: absolute;
+    left: -8px;
+    top: 30px;
+    width: 130px;
+    z-index: 2;
+    font-size: 13px;
+  }
+
+}
+
+.App-menu {
+  position: absolute;
+  width: 51px;
+  height: 51px;
+  right: -100px;
+  top: -100px;
+  border: 1px solid var(--teal);
+  box-sizing: border-box;
+  -webkit-border-radius: 100%;
+  border-radius: 100%;
+  transition: all .25s ease-in-out;
+  z-index: 11;
+  animation: slide-in-top-right 2s cubic-bezier(.65,.4,.89,1) forwards;
+  animation-delay: 3.25s;
+
+  &:hover {
+    cursor: pointer;
+    background-color: var(--teal);
+    -webkit-box-shadow: rgba(0, 255, 240, 0.65) 0px 0px 30px 1px;
+    -moz-box-shadow: rgba(0, 255, 240, 0.65) 0px 0px 30px 1px;
+    box-shadow: rgba(0, 255, 240, 0.65) 0px 0px 30px 1px;
+    transform: scale(1.1);
+  }
+
+}
+
+.App-menu .hamburger {
+  justify-content: center;
+  align-content: center;
+  align-self: center;
+
+  div {
+    margin: 0 auto;
+    width: 26px;
+    height: 1px;
+    background: var(--black);
+    transition: background .25s ease-in-out;
+    &:nth-child(1) {
+      margin: 18px auto 0;
+    }
+    &:nth-child(2) {
+      margin: 5px auto;
+    }
+  }
+  
+}
+
+
+.App-menu:hover .hamburger div {
+  background: var(--white);
+}
+
+@media (max-width: 400px) {
+  .App-logo {
+    height: 90px !important;
+    width: 80px !important;
+  }
+}
+
