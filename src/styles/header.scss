@@ -16,6 +16,10 @@
     width: 130px;
     z-index: 2;
     font-size: 13px;
+    @media (max-width: 400px) {
+      left: -10px;
+      top: 20px;
+    }
   }
 
 }

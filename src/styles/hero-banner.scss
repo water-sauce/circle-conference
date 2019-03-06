@@ -210,26 +210,24 @@
     animation: line-circle-two 3s linear forwards;
     animation-delay: 1s;
   }
-}
 
-
-#gradient-line {
   @media (max-width: 992px) {
     opacity: 0;
     visibility: hidden;
   }
 }
 
+
 #gradient-line-small {
+  opacity: 1;
+  visibility: visible;
   position: absolute;
   top: calc(50% - 64px);
-  visibility: hidden;
   z-index: 9;
-  opacity: 0;
   animation: line-animation 2s linear forwards;
   animation-delay: 3.5s;
-  @media (max-width: 992px) {
-    opacity: 1;
-    visibility: visible;
+  @media (min-width: 992px) {
+    opacity: 0;
+    visibility: hidden;
   }
 }

@@ -75,6 +75,11 @@
       cursor: pointer;
     }
 
+    &:focus {
+      outline: none;
+      border: 1px solid var(--blue);
+    }
+
     option {
       color: #FEFEFE;
 
